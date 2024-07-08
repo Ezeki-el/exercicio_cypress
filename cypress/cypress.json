@@ -1,0 +1,5 @@
+{
+    "baseUrl": "https://agenda-contatos-react.vercel.app",
+    "video": true,
+    "screenshotOnRunFailure": true
+}
