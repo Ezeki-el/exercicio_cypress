@@ -10,7 +10,7 @@ describe('Agenda Contatos', () => {
       cy.get('input[placeholder="Nome"]').should('be.visible').type('Contato Teste');
       cy.get('input[placeholder="E-mail"]').should('be.visible').type('contato@teste.com');
       cy.get('input[placeholder="Telefone"]').should('be.visible').type('11999999999');
-      cy.get('button[class="adicionar"]').should('be.visible').click();
+      cy.get('button[type="submit"]').should('be.visible').click();
   
       // Verificar se o contato foi adicionado corretamente
       cy.contains('Contato Teste').should('exist');
@@ -23,16 +23,16 @@ describe('Agenda Contatos', () => {
       cy.get('input[placeholder="Nome"]').should('be.visible').type('Contato Teste');
       cy.get('input[placeholder="E-mail"]').should('be.visible').type('contato@teste.com');
       cy.get('input[placeholder="Telefone"]').should('be.visible').type('11999999999');
-      cy.get('button[class="adicionar"]').should('be.visible').click();
+      cy.get('button[type="submit"]').should('be.visible').click();
   
       // Clicar no botão de editar
-      cy.contains('Contato Teste').parent().find('button[class="edit"]').should('be.visible').click();
+      cy.contains('Contato Teste').parent().find('button.edit').should('be.visible').click();
   
       // Editar o contato
       cy.get('input[placeholder="Nome"]').clear().type('Contato Editado');
       cy.get('input[placeholder="E-mail"]').clear().type('contato@editado.com');
       cy.get('input[placeholder="Telefone"]').clear().type('11888888888');
-      cy.get('button[class="edit"]').should('be.visible').click();
+      cy.get('button[type="submit"]').should('be.visible').click();
   
       // Verificar se o contato foi editado corretamente
       cy.contains('Contato Editado').should('exist');
@@ -45,10 +45,10 @@ describe('Agenda Contatos', () => {
       cy.get('input[placeholder="Nome"]').should('be.visible').type('Contato Teste');
       cy.get('input[placeholder="E-mail"]').should('be.visible').type('contato@teste.com');
       cy.get('input[placeholder="Telefone"]').should('be.visible').type('11999999999');
-      cy.get('button[class="delete"]').should('be.visible').click();
+      cy.get('button[type="submit"]').should('be.visible').click();
   
       // Clicar no botão de remover
-      cy.contains('Contato Teste').parent().find('button[class="delete"]').should('be.visible').click();
+      cy.contains('Contato Teste').parent().find('button.delete').should('be.visible').click();
   
       // Verificar se o contato foi removido corretamente
       cy.contains('Contato Teste').should('not.exist');
