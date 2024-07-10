@@ -25,8 +25,10 @@ describe('Agenda Contatos', () => {
       cy.get('input[placeholder="Telefone"]').should('be.visible').type('11999999999');
       cy.get('button[type="submit"]').should('be.visible').click();
   
-      // Clicar no botão de editar
-      cy.contains('Contato Teste').parent().find('button.edit').should('be.visible').click();
+      // Espera pelo contato adicionado e o botão de editar estar disponível
+      cy.contains('Contato Teste').parent().parent().within(() => {
+        cy.get('button.edit').should('be.visible').click();
+      });
   
       // Editar o contato
       cy.get('input[placeholder="Nome"]').clear().type('Contato Editado');
@@ -47,8 +49,10 @@ describe('Agenda Contatos', () => {
       cy.get('input[placeholder="Telefone"]').should('be.visible').type('11999999999');
       cy.get('button[type="submit"]').should('be.visible').click();
   
-      // Clicar no botão de remover
-      cy.contains('Contato Teste').parent().find('button.delete').should('be.visible').click();
+      // Espera pelo contato adicionado e o botão de remover estar disponível
+      cy.contains('Contato Teste').parent().parent().within(() => {
+        cy.get('button.delete').should('be.visible').click();
+      });
   
       // Verificar se o contato foi removido corretamente
       cy.contains('Contato Teste').should('not.exist');
