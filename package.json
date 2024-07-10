@@ -1,15 +1,17 @@
 {
-  "name": "cypress-tests",
+  "name": "agenda-contatos-tests",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress open",
+    "test:headless": "npx cypress run",
+    "test:specific": "npx cypress run --spec 'cypress/integration/agenda-contatos.spec.js'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.13.0"
+    "cypress": "^9.0.0"
   }
 }
